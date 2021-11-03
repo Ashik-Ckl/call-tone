@@ -1,74 +1,78 @@
 
-function btnPlus(productId,b){
+function updateQuantity(productId,b){
     
     quantity = $("#quantityId"+productId).val()
     qty = ''
-    if (quantity == null){
-        qty = 1
+    if (quantity == 0 || quantity == null){
+        
+        
+        
     }
     else{
-        qty = parseInt(quantity) + parseInt(1)
-    }
-    // $(quantity).val(qty)
-    $("#quantityId"+productId).val(qty)
-    // var $qty = $(b).closest('.quantity').find(".qty");
+        qty = quantity
+        $("#quantityId"+productId).val(qty)
    
-    var csrftoken = $('[name="csrfmiddlewaretoken"]').val();
-    data = {
-        'id':'1',
-        'product_id':productId,
-        'quantity':qty,
-        csrfmiddlewaretoken:csrftoken
-    }
-    $.ajax({
-        url: 'http://127.0.0.1:8000/core/update_cart/',
-        type:'POST',
-        data:data,
-        dataType: "json",
-        cache: false,
-        success: function(response){ 
-            updateTotal = response['quantity'] * response['price']
-            $("#subTotalPrice"+productId).html('SAR.'+updateTotal+'.00')
-            $("#subTotalH6Id").html('SAR.'+response['sub_total']+'.00')
-
+        var csrftoken = $('[name="csrfmiddlewaretoken"]').val();
+        data = {
+            'id':'1',
+            'product_id':productId,
+            'quantity':qty,
+            csrfmiddlewaretoken:csrftoken
         }
-    });
+        $.ajax({
+            url: 'https://calltone-ksa.com/core/update_cart/',
+            type:'POST',
+            data:data,
+            dataType: "json",
+            cache: false,
+            success: function(response){ 
+                updateTotal = response['quantity'] * response['price']
+                $("#subTotalPrice"+productId).html('SAR.'+updateTotal+'.00')
+                $("#subTotalH6Id").html('SAR.'+response['sub_total']+'.00')
+    
+            }
+        });
+    }
+   
 }
 
 
 
-function btnLess(productId,b){
+// function btnLess(productId,b){
+    
+//     quantity = $("#quantityId"+productId).val()
 
-    quantity = $("#quantityId"+productId).val()
-    qty = ''
-    if (quantity == ''){
-        qty = 1
-    }
-    else{
-        qty = parseInt(quantity) - parseInt(1)
-    }
-    $("#quantityId"+productId).val(qty)
-    var csrftoken = $('[name="csrfmiddlewaretoken"]').val();
-    data = {
-        'id':'0',
-        'product_id':productId,
-        'quantity':qty,
-        csrfmiddlewaretoken:csrftoken
-    }
-    $.ajax({
-        url: 'http://127.0.0.1:8000/core/update_cart/',
-        type:'POST',
-        data:data,
-        dataType: "json",
-        cache: false,
-        success: function(response){            
-            updateTotal = response['quantity'] * response['price']
-            $("#subTotalPrice"+productId).html('SAR.'+updateTotal+'.00')
-            $("#subTotalH6Id").html('SAR.'+response['sub_total']+'.00')
+//     qty = ''
 
-        }
-    });
-}
+//     qty = parseInt(quantity) - parseInt(1)
+
+//     if(qty < 1){
+//         qty = 1
+//     }
+
+//     $("#quantityId"+productId).val(qty)
+    
+//     var csrftoken = $('[name="csrfmiddlewaretoken"]').val();
+//     data = {
+//         'id':'0',
+//         'product_id':productId,
+//         'quantity':qty,
+//         csrfmiddlewaretoken:csrftoken
+//     }
+//     $.ajax({
+//         url: 'https://calltone-ksa.com/core/update_cart/',
+//         type:'POST',
+//         data:data,
+//         dataType: "json",
+//         cache: false,
+//         success: function(response){            
+//             updateTotal = response['quantity'] * response['price']
+//             $("#subTotalPrice"+productId).html('SAR.'+updateTotal+'.00')
+//             $("#subTotalH6Id").html('SAR.'+response['sub_total']+'.00')
+
+//         }
+//     });
+// }
 
 
 
@@ -76,12 +80,11 @@ function deleteProduct (productId,df){
 
     var csrftoken = $('[name="csrfmiddlewaretoken"]').val();
     data = {
-        // 'id':'81456',
         'product_id':productId,
         csrfmiddlewaretoken:csrftoken
     }
     $.ajax({
-        url: 'http://127.0.0.1:8000/core/delete_cart/',
+        url: 'https://calltone-ksa.com/core/delete_cart/',
         type:'POST',
         data:data,
         dataType: "json",

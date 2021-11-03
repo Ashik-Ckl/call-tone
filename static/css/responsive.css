@@ -564,6 +564,24 @@ hr {
  
 /* small mobile :320px. */
 @media (max-width: 767px) {
+  .plr-114 {
+    padding: 0 0px
+}
+.lng-div { 
+  align-items: center; 
+  margin-top: 25px ; 
+}
+  .round {
+    width: 50px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+.btn-number {
+  border: 1px solid #6394f8;
+  padding: 5px;
+  height: 18px;
+  line-height: 0;
+}
   .cart {
     text-align: right;
   }
@@ -572,22 +590,30 @@ hr {
     color: #fe4e02;
     padding-right: 0px;
 }
-  .haed h4 {
-    font-size: 15px;
-    font-weight: 600;
+.haed h4 {
+  font-size: 13px;
+  font-weight: 600;
 }
 .item p {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
+  line-height: 10px;
+  text-align: center;
+  margin-bottom: 0px;
 }
 .item input {
-  font-size: 14px;
-  height: 25px;
+  font-size: 13px;
+  height: 30px;
   font-weight: 400;
+  width: 50px !important;
 }
 .item h6 {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fa-trash{
+  font-size: 15px;
 }
 .sub h6 {
   font-size: 14px;
@@ -1267,6 +1293,27 @@ hr {
 
 /* Additional Media Quirry */
 @media only screen and (max-width: 479px){
+  .cart {
+    text-align: center;
+}
+  .goog-te-gadget .goog-te-combo {
+    margin: 4px 0;
+    text-align: center;
+    width: 42%;
+}
+  .btn-u{
+    padding: 0;
+  }
+  .clean{
+    padding: 0 !important ;
+  }
+  .padlr{
+    padding: 0px 4px;
+  }
+  .padlrr{
+    margin-right: 25px;
+    padding: 0px 0px 0px 10px;
+  }
   .pro-tab-menu ul li {
     margin-bottom: 5px;
     margin-left: 12px;
@@ -1289,6 +1336,7 @@ hr {
  
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+  
 .container {
   width:100%
 }
@@ -1388,6 +1436,9 @@ hr {
  
 /* Tablet desktop :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
+  .p-70 {
+    padding: 0px 0px 0px 45px;
+}
 .boxed-layout .wrapper {
     width: inherit;
 }
@@ -1400,6 +1451,9 @@ hr {
 
 /* small mobile :320px. */
 @media (max-width: 767px) {
+  .p-70 {
+    padding: 0px 0px 0px 25px;
+}
 .boxed-layout .wrapper {
     width: inherit;
 }

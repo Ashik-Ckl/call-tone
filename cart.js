@@ -1,4 +1,15 @@
 
+
+$(document).ready(function(){
+
+    // alert('')
+});
+
+$("#quantityId"+productId).change(function(){
+
+    alert('e')
+});
+
 function btnPlus(productId,b){
     
     quantity = $("#quantityId"+productId).val()
@@ -46,6 +57,16 @@ function btnLess(productId,b){
     }
     else{
         qty = parseInt(quantity) - parseInt(1)
+    }
+    if (parseInt(qty) < 1){
+        alert('')
+
+        qty = 1
+        $("#quantityId"+productId).val(1)
+    }
+    else{
+
+        qty = quantity
     }
     $("#quantityId"+productId).val(qty)
     var csrftoken = $('[name="csrfmiddlewaretoken"]').val();

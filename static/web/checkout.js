@@ -1,19 +1,43 @@
+jQuery(function($){
+    $(document).ready(function(){
+        $("#id_brand").change(function(){
+            var brand = $(this).val();
+            var category = $("#id_category").val();
+            var csrftoken = $('[name="csrfmiddlewaretoken"]').val();
+
+            data = {
+                'brand':brand,
+                'category':category,
+                csrfmiddlewaretoken:csrftoken,
+            },
+            $.ajax({
+                url: 'https://calltone-ksa.com/core/select_model/',
+                type:'POST',
+                data:data,
+                dataType: "json",
+                cache: false,
+                success: function(response){ 
+                    $("#id_model").empty();
+                    var myArray = [];
+                    myArray = response['data']
+
+                    $.each(myArray, function(i) {
 
 
+                        var option =$('<option />');
+                        option.attr('value', myArray[i].id).text(myArray[i].model);
 
-// function sendMessage() {
-//     var doc = new jsPDF();  
-//         doc.fromHTML(document.getElementById("invoiceData"), 
-//         15,
-//         15, 
-//         {
-//         'width': 170  
-//         },
-//         function(a) 
-//         {
-//         doc.save("HTML2PDF.pdf");
-//         window.open("https://api.whatsapp.com/send?text=Show div text: ")
-//         });
-//     }
-
-
+                        $('#id_model').append(option);
+                    });
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status == 500) {
+                        alert('Internal error: ' + jqXHR.responseText);
+                    } else {
+                        alert('Unexpected error.');
+                    }
+                }
+            });
+        });
+    }); 
+});

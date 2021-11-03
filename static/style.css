@@ -134,18 +134,23 @@ form-controll {
 }
 
 .item p{
+  color: #434343;
   font-size: 18px;
   font-weight: 550;
 }
 .item input{
-  font-size: 15px;
-  height: 30px;
+  font-size: 14px;
+  height: 40px;
   font-weight: 500;
 }
 .cart i{
   font-size: 30px;
   color: #fe4e02;
   
+}
+.cart i:hover{
+  color:#ff763b;
+  cursor: pointer;
 }
 .item h6{
   font-size: 20px;
@@ -156,14 +161,37 @@ form-controll {
   font-weight: 500;
 }
 .btnn {
-  padding: 6px 0px;
+    padding: 6px 0px;
     width: 100%;
     border-radius: 15px;
     background-color: #fe4e02;
     color: #fff;
     font-size: 15px;
     font-weight: 700;
+    
 }
+
+.btnn:hover{
+  background-color: #ff763b;
+  cursor: pointer;
+}
+
+.btnn-3 {
+  display: block;
+  padding: 6px 75px;
+  width: 100%;
+  border-radius: 15px;
+  background-color: #20d361;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  
+}
+
+.btnn-3:hover{
+  background-color: #57be7d;
+}
+
 .selectt select{
   height: 35px;
   font-size: 15px;
@@ -260,7 +288,6 @@ form-controll {
 /* -------------------------------------
     7.3 Up comming product section
 ------------------------------------- */
-.up-comming-pro {}
 .up-comming-pro-img {
   width: 47.3%;
 }
@@ -307,7 +334,6 @@ form-controll {
 /* -------------------------------------
     7.4 Banner section
 ------------------------------------- */
-.banner {}
 .banner-item {
   position: relative;
 }
@@ -1891,4 +1917,98 @@ table {width: 100%}
   min-width: 38px;
   width: auto;
   transition: all 300ms ease;
+}
+
+.quntity-input { 
+  text-align: center !important; 
+}
+
+.mb-6{
+  margin-bottom: 3.5rem;
+}
+.btn-number{
+  border: 1px solid #6394f8;
+  padding: 10px;
+  height: 30px;
+}
+.whatsapp-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fa-whatsapp {
+  font-size: 25px;
+  
+}
+.round{
+  border-radius: 50%;
+}
+
+.p-70{
+  padding: 0px 0px 0px 70px;
+}
+
+/* .tr-trans{
+
+  display: flex;
+  
+} */
+.tr-trans li {
+  padding: 0 20px;
+}
+
+.plr-114{
+  padding: 0 114px;
+}
+
+
+
+#google_translate_element{width:300px;float:right;text-align:right;display:block;}
+.goog-te-banner-frame.skiptranslate { display: none !important;} 
+body { top: 0px !important; }
+#goog-gt-tt{display: none !important; top: 0px !important; } 
+.goog-tooltip skiptranslate{display: none !important; top: 0px !important; } 
+.activity-root { display: hide !important;} 
+.status-message { display: hide !important;}
+.started-activity-container { display: hide !important;}
+.skiptranslate-goog-te-gadget{ display: block !important;}
+
+#google_translate_element img
+{
+    display: none !important;
+}
+
+#google_translate_element a {
+  display: none;
+}
+
+
+#google_translate_element span {
+  display: none;
+}
+
+.goog-te-gadget  {
+  font-family: arial;
+  font-size: 11px;
+  color:#ffffff !important;
+  white-space: nowrap;
+
+
+}
+
+.goog-te-gadget .goog-te-combo {
+  margin: 4px 0 !important;
+  padding: inherit !important;
+  color: black;
+} 
+
+.goog-te-gadget .goog-te-combo {
+  margin: 4px 0;
+  text-align: center;
+  width: 51%;
+}
+
+.lng-div{
+  align-items:center;
+  margin-top: 36px;
 }

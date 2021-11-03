@@ -1,7 +1,6 @@
 
-
 $("#brand").change(function(){
-    
+
     var brand = $(this).val();
     var category = $("#category").val();
 
@@ -28,16 +27,15 @@ $("#brand").change(function(){
 
             var dropdown = $("#model")
 
-            dropdown.append('<option selected="true" disabled>--select--</option>');
+            dropdown.append('<option selected="true" disabled>Select Model</option>');
             dropdown.prop('selectedIndex', 0);
 
 
             var myArray = [];
             myArray = response['data']
-                     
+
             $.each(myArray, function(i) {
 
-                
                 var option =$('<option />');
                 option.attr('value', myArray[i].id).text(myArray[i].model);
 
@@ -56,8 +54,8 @@ $("#brand").change(function(){
 
                 $.each(myArray, function(i){
 
-                    target = $('#rowImageViewDiv'),    
-                    html = ''                               
+                    target = $('#rowImageViewDiv'),
+                    html = ''
                     html ='<div class="col-lg-3 col-6">';
                     html+='<div class="product-item product-item-2">';
                     html+= '<div id="viewImage" class="product-img">'
@@ -76,19 +74,21 @@ $("#brand").change(function(){
                         html+='<button type="button" name="selector" class="btnn mt-3 mb-3" " onclick="btnCart('+ myArray[i].id +',this)">Add to Cart</button>'
                             '</form>'
                         '</div>'
-    
-                    '</div>'
-            
-            
-                '</div>';
-    
-                    target.append(html)                    
-                });                   
-            }
-            
-            else{
 
-            }                               
+                    '</div>'
+
+
+                '</div>';
+
+                    target.append(html)
+                });
+            }
+
+            else{
+                alert('No data')
+                
+
+            }
         }
     });
 })
@@ -104,11 +104,15 @@ $("#model").change(function(){
 
     var model = $(this).val();
     var brand = $("#brand").val();
+    var category = $("#category").val();
+    var category = $("#category").val();
+
     var csrftoken = $('[name="csrfmiddlewaretoken"]').val();
     data = {
         'id':'87476',
         'brand':brand,
         'model':model,
+        'category':category,
         csrfmiddlewaretoken:csrftoken
     }
 
@@ -119,8 +123,8 @@ $("#model").change(function(){
         data:data,
         dataType: "json",
         cache: false,
-        success: function(response){            
-            
+        success: function(response){
+
             var myArray = [];
             myArray = response['data']
 
@@ -132,8 +136,8 @@ $("#model").change(function(){
 
                 $.each(myArray, function(i){
 
-                    target = $('#rowImageViewDiv'),    
-                    html = ''                               
+                    target = $('#rowImageViewDiv'),
+                    html = ''
                     html ='<div class="col-lg-3 col-6">';
                     html+='<div class="product-item product-item-2">';
                     html+= '<div id="viewImage" class="product-img">'
@@ -152,27 +156,24 @@ $("#model").change(function(){
                         html+='<button type="button" name="selector" class="btnn mt-3 mb-3" " onclick="btnCart('+ myArray[i].id +',this)">Add to Cart</button>'
                             '</form>'
                         '</div>'
-    
+
                     '</div>'
-            
-            
+
+
                 '</div>';
-    
-                    target.append(html)                   
+
+                    target.append(html)
                 });
-                
+
             }
-            
+
             else{
 
                 alert('No data')
             }
-                       
+
         }
     });
-
-
-
 });
 
 
@@ -193,7 +194,7 @@ function btnCart(productId,thisProp){
         data:data,
         dataType: "json",
         cache: false,
-        beforeSend: function() { 
+        beforeSend: function() {
             $(thisProp).prop('disabled', true); // disable button
           },
         success: function(response){
@@ -201,13 +202,13 @@ function btnCart(productId,thisProp){
             $(thisProp).prop('disabled', false);
 
             if(response['msg'] == '1'){
-                $(thisProp).html('Already Carted') 
+                $(thisProp).html('Already Carted')
 
             }
 
             else{
 
-                $(thisProp).html('Carted') 
+                $(thisProp).html('Carted')
             }
 
         }

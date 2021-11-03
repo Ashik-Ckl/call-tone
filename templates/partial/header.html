@@ -1,33 +1,34 @@
 {% load static %}
 
 
-<header  class="header-area header-wrapper header-2">
+<header class="header-area header-wrapper header-2">
 
     <!-- header-middle-area -->
     <div style=" border-style: solid ; border: 3px solid #F90;
-border-top-width: 0px; border-right-width: 0px; border-left-width: 0px;  " id="sticky-header" class="header-middle-area plr-185"  id="sticky-header" class="header-middle-area plr-185">
+border-top-width: 0px; border-right-width: 0px; border-left-width: 0px;  " id="sticky-header"
+        class="header-middle-area plr-114" id="sticky-header" class="header-middle-area plr-185">
         <div class="container-fluid">
             <div class="full-width-mega-dropdown">
                 <div class="row">
                     <!-- logo -->
-                    <div class="col-lg-2 col-md-4 col-4">
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-4">
                         <div class="logo">
                             <a href="/">
-                                 <img src="{% static 'img/logo/logo.svg' %}"  width="142" height="46" alt="main logo">
+                                <img src="{% static 'img/logo/logo.svg' %}" width="142" height="46" alt="main logo">
                             </a>
                         </div>
                     </div>
                     <!-- primary-menu -->
-                    <div class="col-lg-8 d-none d-lg-block">
+                    <div class="col-lg-6 d-none d-lg-block">
                         <nav id="primary-menu">
                             <ul class="main-menu text-center">
                                 <li><a href="/">Home</a>
                                 </li>
-                            <style>
-                                html {
+                                <style>
+                                    html {
                                         scroll-behavior: smooth;
-                                        }
-                            </style>
+                                    }
+                                </style>
                                 </li>
                                 <li>
                                     <a href="/about/">About us</a>
@@ -35,17 +36,34 @@ border-top-width: 0px; border-right-width: 0px; border-left-width: 0px;  " id="s
                                 <li>
                                     <a href="/contact/">Contact</a>
                                 </li>
+
+
                             </ul>
+                            
                         </nav>
 
 
                     </div>
+                    
                     <!-- header-search & total-cart -->
-                    <div class="col-lg-2 col-md-8 col-8 align-self-center cart">
-                        <ul class="navbar-right">
-                            <li><a href="/cart/" id="cart"><i class="zmdi zmdi-shopping-cart"></i><span class="badge" id="cartDataCountVal">{{cart_length}}</span></a></li>
-                          </ul>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-4 align-self-center cart" style="z-index: 100;">
+                        <ul  class="navbar-right">
+                            <li><a href="/cart/" id="cart">
+                                <i class="zmdi zmdi-shopping-cart"></i>
+                                <span class="badge" style="position: absolute;"
+                                id="cartDataCountVal">{{cart_length}}</span></a></li>                           
+                        </ul>
+                        
+                        <!-- <ul class="navbar-right tr-trans">                            
+                                <li id="google_translate_element"></li>
+                        </ul> -->
+
+                       
                     </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-4">                                      
+                        <div class="lng-div" id="google_translate_element"></div>                        
+                    </div>
+
                 </div>
 
             </div>
@@ -67,7 +85,7 @@ border-top-width: 0px; border-right-width: 0px; border-left-width: 0px;  " id="s
                             <li><a href="/">Home</a>
 
                             </li>
-     
+
 
                             <li>
                                 <a href="/about/">About Us</a>

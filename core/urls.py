@@ -22,5 +22,7 @@ urlpatterns = [
     path('images/',views.select_model_based_images),
     path('cart/',views.cart),
     path('delete_cart/',views.cart_delete),
-    path('update_cart/',views.update_cart)
+    path('update_cart/',views.update_cart),
+    ##########################################
+    path('select_model/',views.select_models)
 ]

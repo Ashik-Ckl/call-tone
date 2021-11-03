@@ -1,6 +1,7 @@
 from django.http.response import JsonResponse
 from django.shortcuts import render
 import json
+from web.models import category
 from web import models
 import operator
 
@@ -18,14 +19,15 @@ def select_model(request):
         id = request.POST['id']
         brand = request.POST['brand']
         category = request.POST['category']
-
+        print(category)
 
         try:
 
 
             if id == '81456':
 
-                model = models.product_model.objects.filter(brand_id = int(brand))
+                model = models.product_model.objects.filter(brand_id = brand, category_id = category)
+                print(model)
 
                 for i in model:
 
@@ -36,10 +38,13 @@ def select_model(request):
                     }
                     a.append(data)
 
+                for j in a:
+                    print('model',a)
+
                 if brand == '0':
 
 
-                    selectImage = models.product.objects.filter(category = category)
+                    selectImage = models.product.objects.filter(category_id = category)
 
                     
                     for j in selectImage:
@@ -66,7 +71,7 @@ def select_model(request):
 
 
                 else:
-                    selectImage = models.product.objects.filter(brand_id=brand)
+                    selectImage = models.product.objects.filter(brand_id=brand, category_id= category)
 
                 
                     br = models.brand.objects.get(id=brand)
@@ -113,6 +118,7 @@ def select_model_based_images(request):
         id = request.POST['id']
         brand = request.POST['brand']
         model = request.POST['model']
+        category = request.POST['category']
 
 
         br = models.brand.objects.get(id = brand)
@@ -123,7 +129,7 @@ def select_model_based_images(request):
 
             if id == '87476':
 
-                selectImage = models.product.objects.filter(brand_id = brand, model_id = model)
+                selectImage = models.product.objects.filter(brand_id = brand,category_id = category, model_id = model)
 
                 for i in selectImage:
                     data = {
@@ -287,3 +293,25 @@ def update_cart(request):
 
     return JsonResponse({'quantity':quantity,'price':price,'sub_total':subTotal})
 
+
+
+############### SELECT BRAND ###################
+
+def select_models(request):
+
+    if request.is_ajax():
+        a =[]
+
+        brand = request.POST['brand']
+        category = request.POST['category']
+
+        model = models.product_model.objects.filter(category_id = category, brand_id = brand)
+
+        for i in model:
+            data = {
+                'id':i.id,
+                'model':i.model_name
+            }
+            a.append(data)
+
+        return JsonResponse({'data':a})

@@ -81,10 +81,11 @@ a,
 }
 .btn {
   border-radius: 0px;
-  font-size: 14px;
+  font-size: 20px;
   padding: 0px 15px;
   height: 30px;
-  line-height: 30px;
+  line-height: 8px;
+  font-weight: 600;
 }
 a:focus,
 .btn:focus {
@@ -608,7 +609,6 @@ input[type="password"] {
   font-size: 13px;
   height: 40px;
   margin-bottom: 20px;
-  padding-left: 20px;
   width: 100%;
 }
 button {
@@ -638,7 +638,7 @@ textarea {
   border: 1px solid transparent;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   font-size: 13px;
-  padding: 10px 10px 10px 20px;
+  padding: 10px 10px 10px 0px;
   resize: vertical;
   width: 100%;
 }

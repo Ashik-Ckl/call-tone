@@ -2,12 +2,19 @@ from django.db import models
 from django.db.models.base import Model
 from django.utils.tree import Node
 
+class category(models.Model):
+    
+    category = models.CharField(max_length=100,null=False,unique=True)
+    category_image = models.ImageField(upload_to = 'category_image')
+
+
+    def __str__(self):
+        return self.category
+
 
 
 class brand(models.Model):
 
-    choices = ('Battery','Battery'),('Display','Display'),('Touch','Touch'),('Accessories','Accessories'),('Data Cable','Data Cable')
-    category =  models.CharField(choices = choices, max_length=50, default='Battery')
     brand_name = models.CharField(max_length=50)
 
     
@@ -16,6 +23,7 @@ class brand(models.Model):
 
 class product_model(models.Model):
 
+    category = models.ForeignKey(category,on_delete=models.CASCADE)
     brand = models.ForeignKey(brand,on_delete=models.CASCADE,)
     model_name = models.CharField(max_length=50)
 
@@ -24,12 +32,12 @@ class product_model(models.Model):
 
 
 
+
 class product(models.Model):
-    id = models.IntegerField(primary_key=True, default=9)
-    choices = ('Battery','Battery'),('Display','Display'),('Touch','Touch'),('Accessories','Accessories'),('Data Cable','Data Cable')
+
     date = models.DateField(auto_now_add=True)
     product_name = models.CharField(max_length=100)
-    category = models.CharField(max_length=50, choices=choices)
+    category = models.ForeignKey(category,on_delete=models.CASCADE)
     brand = models.ForeignKey(brand, on_delete=models.CASCADE)
     model = models.ForeignKey(product_model, on_delete=models.CASCADE)
     product_image = models.ImageField(upload_to = 'product_image')
@@ -39,21 +47,4 @@ class product(models.Model):
         return self.product_name
 
 
-    # def __str__(self):
-    #     return self.brand
-
-    # def __str__(self):
-    #     return self.model
-
-
-class category_image(models.Model):
-
-    choices = ('Battery','Battery'),('Display','Display'),('Touch','Touch'),('Accessories','Accessories'),('Data Cable','Data Cable')
-
-    category = models.CharField(max_length=50, choices=choices,unique=True)
-    category_image = models.ImageField(upload_to = 'category_image')
-
-
-    def __str__(self):
-        return self.category
 
